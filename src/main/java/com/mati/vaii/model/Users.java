@@ -13,23 +13,40 @@ public class Users {
     private String email;
     private String password;
     private String role;
-
+    private String name;
+    private String surname;
     public Users() {
     }
 
 
-    public Long getId() {
-        return id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
 
-    public Users(Long id) {
-        this.id = id;
+    public Users(String email) {
+        this.email = email;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getEmail() {
@@ -48,10 +65,11 @@ public class Users {
         this.role = role;
     }
 
-    public Users(Long id, String email, String role) {
-        this.id = id;
+    public Users(String email, String role, String name, String surname) {
         this.email = email;
         this.role = role;
+        this.name = name;
+        this.surname = surname;
     }
 
     public String getPassword() {

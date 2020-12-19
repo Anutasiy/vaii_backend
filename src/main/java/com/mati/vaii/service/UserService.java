@@ -37,6 +37,8 @@ public class UserService  implements UserDetailsService {
         newUser.setPassword(bCryptPasswordEncoder.encode(user.password));
         newUser.setEmail(user.email.toLowerCase());
         newUser.setRole(user.role);
+        newUser.setName(user.name);
+        newUser.setSurname(user.surname);
 
         userRepository.save(newUser);
     }
@@ -64,7 +66,7 @@ public class UserService  implements UserDetailsService {
 
 
     private UserDetails buildUserForAuthentication(Users user, List<GrantedAuthority> authorities) {
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), authorities);
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),  authorities);
     }
 
     }

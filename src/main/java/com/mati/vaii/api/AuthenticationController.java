@@ -54,7 +54,7 @@ public class AuthenticationController {
 //    @Autowired
 //    private PasswordEncoder bCryptPasswordEncoder;
 
-    private String url = "http://matifamily.com";
+//    private String url = "http://matifamily.com";
 
 
     @SuppressWarnings("rawtypes")
