@@ -14,6 +14,7 @@ import org.springframework.boot.context.config.ConfigDataResourceNotFoundExcepti
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -39,12 +40,12 @@ public class RestApi {
     }
 
     @PostMapping("/courses")
-    public Courses createCourse(@RequestBody Courses course) {
+    public Courses createCourse(@Valid @RequestBody Courses course) {
         return courseService.postCourses(course);
     }
 
     @PutMapping("/courses")
-    public ResponseEntity<Courses> updateCourse(@RequestBody Courses courseDetails)
+    public ResponseEntity<Courses> updateCourse(@Valid @RequestBody Courses courseDetails)
          //   throws ResourceNotFoundException
          {
 //         Courses course = courseService.findById(courseId);

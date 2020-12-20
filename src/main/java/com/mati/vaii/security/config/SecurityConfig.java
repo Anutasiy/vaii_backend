@@ -51,6 +51,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST,"/courses").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.GET,"/courses/{id}").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.DELETE,"/courses/{id}").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.GET,"/feedbacks").permitAll()
+//                .antMatchers(HttpMethod.PUT,"/feedbacks").hasAuthority("USER")
+                .antMatchers(HttpMethod.POST,"/feedbacks").hasAuthority("USER")
+                .antMatchers(HttpMethod.GET,"/feedbacks/{id}").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.DELETE,"/feedbacks/{id}").hasAuthority("ADMIN")
                 .anyRequest().authenticated().and().csrf()
                 .disable().exceptionHandling().authenticationEntryPoint(unauthorizedEntryPoint()).and()
                 .apply(new JwtConfigurer(jwtTokenProvider));

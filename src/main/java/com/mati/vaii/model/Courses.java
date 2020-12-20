@@ -5,6 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "courses")
@@ -12,8 +16,15 @@ public class Courses {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+    @NotNull
+    @NotEmpty
+    @NotBlank
     private String nazov;
+    @Min(1)
     private int cena;
+    @NotBlank
+    @NotEmpty
+    @NotNull
     private String popis;
 
     protected Courses() {}
