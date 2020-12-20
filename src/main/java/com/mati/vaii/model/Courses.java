@@ -1,5 +1,4 @@
 package com.mati.vaii.model;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -40,6 +39,7 @@ public class Courses {
         public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -72,7 +72,5 @@ public class Courses {
     public String toString() {
         return "Kurz [id=" + id + ", nazov=" + nazov + ", cena=" + cena + ", popis=" + popis + "]";
     }
-
-
 }
 

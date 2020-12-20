@@ -1,12 +1,9 @@
 package com.mati.vaii.api;
-
-
 import com.mati.vaii.model.Feedbacks;
 import com.mati.vaii.service.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +12,6 @@ import java.util.Map;
 @RestController
 @CrossOrigin
 public class FeedbackApi {
-
 
     @Autowired
     private FeedbackService feedbackService;
@@ -27,11 +23,9 @@ public class FeedbackApi {
 
     @GetMapping(value = "/feedbacks/{id}")
     public ResponseEntity<Feedbacks> getFeedbacksById (@PathVariable(value = "id") Long feedbackId)
-    // throws ResourceNotFoundException
     {
         Feedbacks feedback = feedbackService.findFeedbackById(feedbackId);
         return ResponseEntity.ok().body(feedback);
-
     }
 
     @PostMapping("/feedbacks")
@@ -48,7 +42,6 @@ public class FeedbackApi {
 
     @DeleteMapping("/feedbacks/{id}")
     public Map<String, Boolean> deleteFeedback(@PathVariable(value = "id") Long id)
-    //  throws ResourceNotFoundException {
     {
         feedbackService.deleteFeedback(id);
         Map<String, Boolean> response = new HashMap<>();

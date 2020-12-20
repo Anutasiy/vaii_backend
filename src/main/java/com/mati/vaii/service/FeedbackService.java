@@ -1,7 +1,5 @@
 package com.mati.vaii.service;
 
-
-
 import com.mati.vaii.model.Feedbacks;
 import com.mati.vaii.repository.FeedbackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,6 @@ public class FeedbackService {
 
     @Autowired
     FeedbackRepository feedbackRepository;
-
 
     public List<Feedbacks> getFeedbacks(){
 
@@ -59,5 +56,4 @@ public class FeedbackService {
         }
         return feedbacks;
     }
-
 }

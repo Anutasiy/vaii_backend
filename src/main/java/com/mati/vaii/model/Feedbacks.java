@@ -1,6 +1,4 @@
 package com.mati.vaii.model;
-
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -22,7 +20,6 @@ public class Feedbacks {
     @NotBlank
     private String popis;
     private Long idUcitel;
-
     protected Feedbacks() {}
 
     public Feedbacks(Long id, Long idUser, String nazov, String popis, Long idUcitel) {
@@ -32,7 +29,6 @@ public class Feedbacks {
         this.popis = popis;
         this.idUcitel = idUcitel;
     }
-
 
     public Long getId() {
         return id;

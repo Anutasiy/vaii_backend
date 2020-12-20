@@ -1,8 +1,6 @@
 package com.mati.vaii.model;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -17,11 +15,6 @@ public class Users {
     private String surname;
     public Users() {
     }
-
-
-//    public Long getId() {
-//        return id;
-//    }
 
     public Users(String email) {
         this.email = email;

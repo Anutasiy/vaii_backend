@@ -4,9 +4,6 @@ import com.mati.vaii.dto.UserDTO;
 import com.mati.vaii.model.Users;
 import com.mati.vaii.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
 
 @Service
@@ -31,15 +27,11 @@ public class UserService  implements UserDetailsService {
 
     public void saveUser(UserDTO user) {
         Users newUser = new Users();
-
-//		newUser.setFullname(user.fullname);
-        //newUser.setId(user.id);
         newUser.setPassword(bCryptPasswordEncoder.encode(user.password));
         newUser.setEmail(user.email.toLowerCase());
         newUser.setRole(user.role);
         newUser.setName(user.name);
         newUser.setSurname(user.surname);
-
         userRepository.save(newUser);
     }
 
@@ -68,5 +60,4 @@ public class UserService  implements UserDetailsService {
     private UserDetails buildUserForAuthentication(Users user, List<GrantedAuthority> authorities) {
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),  authorities);
     }
-
-    }
+}
